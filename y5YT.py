@@ -1,3 +1,4 @@
+
 import random
 
 print('じゃんけんスタート')
@@ -11,20 +12,8 @@ if my_hand == 0:
     print('あいこ')
   elif you_hand == 1:
     print('勝ち')
-  elif you_hand == 2:
-    print('負け')
 elif my_hand == 1:
   if you_hand == 0:
     print('負け')
   elif you_hand == 1:
     print('あいこ')
-  elif you_hand == 2:
-    print('勝ち')
-elif my_hand == 2:
-  if you_hand == 0:
-    print('勝ち')
-  elif you_hand == 1:
-    print('負け')
-  elif you_hand == 2:
-    print('あいこ')
-
