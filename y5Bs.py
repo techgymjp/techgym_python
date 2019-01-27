@@ -17,7 +17,7 @@ class Team:
     return random.randint(10, self.attack)
 
   def get_out_rate(self):
-    return (random.randint(10, self.defense))
+    return random.randint(10, self.defense)
 
 def create_teams():
   global teams
