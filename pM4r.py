@@ -35,7 +35,7 @@ def view_question():
 def change_input_number(input_str):
   str_data = { 'A':0, 'B':1, 'C':2 }
   input_str_split = list(input_str)
-  row_number = int(str_data[input_str_split[0]])
+  row_number = str_data[input_str_split[0]]
   line_number = int(input_str_split[1]) - 1
   input_number = line_number * 3 + row_number
   return input_number
