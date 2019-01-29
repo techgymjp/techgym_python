@@ -18,8 +18,8 @@ def view_question():
   print(question)
   i = 0
   j = 0
-  print('        A B C')
-  print('    ーーーー')
+  print('／｜A B C')
+  print('ーーーーー')
   while i < 3:
     question_str = str(i + 1) + '｜'
     while j < 3:
@@ -36,9 +36,9 @@ def view_question():
 def change_input_number(input_str):
   str_data = { 'A':0, 'B':1, 'C':2 }
   input_str_split = list(input_str)
-  row_number = str_data[input_str_split[0]]
-  line_number = int(input_str_split[1]) - 1
-  input_number = line_number * 3 + row_number
+  col_number = str_data[input_str_split[0]]
+  row_number = int(input_str_split[1]) - 1
+  input_number = row_number * 3 + col_number
   return input_number
 
 def is_correct_number(mistake_number, input_number):
@@ -56,9 +56,9 @@ def view_result(is_correct, mistake_number):
 
 def change_string(number):
   number_data = ['A', 'B', 'C']
-  row_number = number % 3
-  line_number = math.floor(number / 3) + 1
-  string = number_data[row_number] + str(line_number)
+  col_number = number % 3
+  row_number = math.floor(number / 3) + 1
+  string = number_data[col_number] + str(row_number)
   return string
 
 def play():

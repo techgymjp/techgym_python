@@ -17,8 +17,8 @@ def view_question():
   print(question)
   i = 0
   j = 0
-  print('       A B C')
-  print('    ーーーー')
+  print('／｜A B C')
+  print('ーーーーー')
   while i < 3:
     question_str = str(i + 1) + '｜'
     while j < 3:
