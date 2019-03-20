@@ -40,7 +40,7 @@ def change_input_number(input_str):
   input_str_split = list(input_str)
   col_number = str_data[input_str_split[0]]
   row_number = int(input_str_split[1]) - 1
-  input_number = row_number * row + col_number
+  input_number = row_number * col + col_number
   return input_number
 
 def is_correct_number(mistake_number, input_number):
