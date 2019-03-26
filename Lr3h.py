@@ -13,13 +13,13 @@ class Human(Player):
     super().__init__(name, coin)
 
   def bet(self):
-    bet_coin = input('何枚BETしますか？：(1-100)')
+    bet_coin = input('何枚BETしますか？：(1-99)')
     print(bet_coin)
 
 def play():
   print('デバッグログ：play()')
   
-  human = Human('自分', 500)
+  human = Human('MY', 500)
   human.info()
 
   human.bet()

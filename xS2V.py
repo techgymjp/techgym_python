@@ -15,7 +15,7 @@ class Human(Player):
 def play():
   print('デバッグログ：play()')
   
-  human = Human('自分', 500)
+  human = Human('MY', 500)
   human.info()
 
 play()

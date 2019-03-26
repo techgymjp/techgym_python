@@ -40,6 +40,15 @@ class Computer(Player):
   def __init__(self, name, coin):
     super().__init__(name, coin)
 
+  def bet(self):
+    if self.coin >= 99:
+      max_bet_coin = 99
+    else:
+      max_bet_coin = self.coin
+    bet_coin = random.randint(1, max_bet_coin)
+    super().set_bet_coin(bet_coin)
+    print(bet_coin)
+
 def create_players():
   global players
   human = Human('MY', 500)
@@ -51,5 +60,10 @@ def create_players():
 def play():
   print('デバッグログ：play()')
   create_players()
+  show_players()
 
+def show_players():
+  for player in players:
+    player.info()
+  
 play()

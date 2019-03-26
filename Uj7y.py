@@ -13,7 +13,7 @@ class Human(Player):
     super().__init__(name, coin)
 
   def bet(self):
-    bet_message = '何枚BETしますか？：(1-100)'
+    bet_message = '何枚BETしますか？：(1-99)'
     bet_coin = input(bet_message)
     while not self.enable_bet_coin(bet_coin):
       bet_coin = input(bet_message)
@@ -22,7 +22,7 @@ class Human(Player):
   def enable_bet_coin(self, string):
     if string.isdigit():
       number = int(string)
-      if number >= 1 and number <= 100:
+      if number >= 1 and number <= 99:
         return True
       else:
         return False
@@ -32,7 +32,7 @@ class Human(Player):
 def play():
   print('デバッグログ：play()')
   
-  human = Human('自分', 500)
+  human = Human('MY', 500)
   human.info()
 
   human.bet()

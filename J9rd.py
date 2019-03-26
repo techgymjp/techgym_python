@@ -51,5 +51,10 @@ def create_players():
 def play():
   print('デバッグログ：play()')
   create_players()
+  show_players()
+
+def show_players():
+  for player in players:
+    player.info()
 
 play()

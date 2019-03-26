@@ -1,6 +1,7 @@
 import random
 
 players = []
+table = []
 
 class Player:
   def __init__(self, name, coin):
@@ -13,6 +14,7 @@ class Player:
   def set_bet_coin(self, bet_coin):
     self.bet_coin = bet_coin
     self.coin -= bet_coin
+    print(self.name + 'は ' + str(bet_coin) + 'コイン BETしました。')
 
 class Human(Player):
   def __init__(self, name, coin):
@@ -24,7 +26,6 @@ class Human(Player):
     while not self.enable_bet_coin(bet_coin):
       bet_coin = input(bet_message)
     super().set_bet_coin(int(bet_coin))
-    print(bet_coin)
 
   def enable_bet_coin(self, string):
     if string.isdigit():
@@ -40,6 +41,20 @@ class Computer(Player):
   def __init__(self, name, coin):
     super().__init__(name, coin)
 
+  def bet(self):
+    if self.coin >= 99:
+      max_bet_coin = 99
+    else:
+      max_bet_coin = self.coin
+    bet_coin = random.randint(1, max_bet_coin)
+    super().set_bet_coin(bet_coin)
+
+class Cell:
+  def __init__(self, name, rate, color):
+    self.name = name
+    self.rate = rate
+    self.color = color
+
 def create_players():
   global players
   human = Human('MY', 500)
@@ -48,8 +63,38 @@ def create_players():
   computer3 = Computer('C3', 500)
   players = [human, computer1, computer2, computer3]
 
+def create_table():
+  global table
+  table.append(Cell('R', 8, 'red'))
+  table.append(Cell('B', 8, 'black'))
+  table.append(Cell('1', 2, 'red'))
+  table.append(Cell('2', 2, 'black'))
+  table.append(Cell('3', 2, 'red'))
+  table.append(Cell('4', 2, 'black'))
+  table.append(Cell('5', 2, 'red'))
+  table.append(Cell('6', 2, 'black'))
+  table.append(Cell('7', 2, 'red'))
+  table.append(Cell('8', 2, 'black'))
+
+def show_table():
+  for cell in table:
+    print('｜' + cell.name + '(x' + str(cell.rate) + ')｜')
+
 def play():
   print('デバッグログ：play()')
   create_players()
+  create_table()
+  show_table()
+  #show_players()
+
+def show_players():
+  for player in players:
+    player.info()
+  
+  for player in players:
+    player.bet()
+ 
+  for player in players:
+    player.info()
 
 play()
