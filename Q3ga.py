@@ -12,9 +12,6 @@ class Player:
     for cell in table:
       self.bets.update({cell.name: 0})
 
-  def info(self):
-    print(self.name + '：' + str(self.coin))
-
   def set_bet_coin(self, bet_coin, bet_cell):
     self.bet_coin = bet_coin
     self.coin -= bet_coin
