@@ -25,7 +25,7 @@ def view_question():
   while i < row:
     question_str = str(i + 1) + '｜'
     while j < col:
-      if (i * row + j) == mistake_number:
+      if (i * col + j) == mistake_number:
         question_str += question[1]
       else:
         question_str += question[0]
@@ -58,7 +58,7 @@ def view_result(is_correct, mistake_number):
 
 def change_string(number):
   number_data = ['A', 'B', 'C', 'D', 'E', 'F', 'F', 'H', 'I']
-  col_number = number % row
+  col_number = number % col
   row_number = math.floor(number / row) + 1
   string = number_data[col_number] + str(row_number)
   return string
