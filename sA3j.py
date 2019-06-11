@@ -2,7 +2,7 @@ import random
 import math
 
 data = [['見','貝'], ['土','士'], ['眠','眼']]
-number_data = ['A', 'B', 'C', 'D', 'E', 'F', 'F', 'H', 'I']
+number_data = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I']
 level = 1
 col = 5
 row = 4
