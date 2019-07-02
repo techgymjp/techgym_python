@@ -66,7 +66,7 @@ def view_result(is_correct, mistake_number):
 
 def change_string(number):
   col_number = number % col
-  row_number = math.floor(number / row) + 1
+  row_number = math.floor(number / col) + 1
   string = number_data[col_number] + str(row_number)
   return string
 

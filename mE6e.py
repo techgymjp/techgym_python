@@ -57,9 +57,9 @@ def view_result(is_correct, mistake_number):
     print('正解は ' + change_string(mistake_number))
 
 def change_string(number):
-  number_data = ['A', 'B', 'C', 'D', 'E', 'F', 'F', 'H', 'I']
+  number_data = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I']
   col_number = number % col
-  row_number = math.floor(number / row) + 1
+  row_number = math.floor(number / col) + 1
   string = number_data[col_number] + str(row_number)
   return string
 
