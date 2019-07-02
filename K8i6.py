@@ -13,7 +13,6 @@ class Player:
       self.bets.update({cell.name: 0})
 
   def set_bet_coin(self, bet_coin, bet_cell):
-    self.bet_coin = bet_coin
     self.coin -= bet_coin
     self.bets[bet_cell] = bet_coin
     print(self.name + 'は ' + str(bet_coin) + 'コイン を ' + bet_cell + ' にBETしました。')

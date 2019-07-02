@@ -11,7 +11,6 @@ class Player:
     print(self.name + '：' + str(self.coin))
 
   def set_bet_coin(self, bet_coin):
-    self.bet_coin = bet_coin
     self.coin -= bet_coin
     print(self.name + 'は ' + str(bet_coin) + 'コイン BETしました。')
 
