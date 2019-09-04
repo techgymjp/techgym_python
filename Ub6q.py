@@ -8,7 +8,6 @@ card_images = []
 cards = []
 
 def load_image():
-  global card_images
   image_name = 'cards.jpg'
   vsplit_number = 4
   hsplit_number = 13
@@ -18,17 +17,16 @@ def load_image():
     with open(image_name, 'wb') as image:
       image.write(response.content)
    
-  img = cv.imread('./cards.jpg')
+  img = cv.imread('./'+image_name)
   img = cv.cvtColor(img, cv.COLOR_BGR2RGB)
  
   h, w = img.shape[:2]
   crop_img = img[:h // vsplit_number * vsplit_number, :w // hsplit_number * hsplit_number]
   
-  card_images = []
+  card_images.clear()
   for h_image in np.vsplit(crop_img, vsplit_number):
     for v_image in np.hsplit(h_image, hsplit_number):
       card_images.append(v_image)
-  card_images = np.array(card_images)
 
 class Card:
   def __init__(self, mark, display_name, number, image):
@@ -44,18 +42,18 @@ class Player:
     self.total_number = 0
 
 class Human(Player):
-  def __init__(self, name):
-    super().__init__(name)
+  def __init__(self):
+    super().__init__('自分')
 
 class Computer(Player):
-  def __init__(self, name):
-    super().__init__(name)
+  def __init__(self):
+    super().__init__('コンピューター')
 
 def create_cards():
-  global cards
+  cards.clear()
   marks = ['ハート', 'スペード', 'ダイヤ', 'クローバー']
   display_names = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
-  numbers = [10, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+  numbers = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 
   for i, mark in enumerate(marks):
     for j, number in enumerate(numbers):
@@ -72,6 +70,5 @@ def play():
   print('デバッグログ：play()')
   load_image()
   create_cards()
-  show_card(cards[10])
 
 play()

@@ -13,7 +13,6 @@ display_names = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K
 numbers = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 
 def load_image():
-  global card_images
   image_name = 'cards.jpg'
   vsplit_number = 4
   hsplit_number = 13
@@ -23,17 +22,16 @@ def load_image():
     with open(image_name, 'wb') as image:
       image.write(response.content)
    
-  img = cv.imread('./cards.jpg')
+  img = cv.imread('./'+image_name)
   img = cv.cvtColor(img, cv.COLOR_BGR2RGB)
  
   h, w = img.shape[:2]
   crop_img = img[:h // vsplit_number * vsplit_number, :w // hsplit_number * hsplit_number]
   
-  card_images = []
+  card_images.clear()
   for h_image in np.vsplit(crop_img, vsplit_number):
     for v_image in np.hsplit(h_image, hsplit_number):
       card_images.append(v_image)
-  card_images = np.array(card_images)
 
 class Card:
   def __init__(self, mark, display_name, number, image):
@@ -50,15 +48,16 @@ class Player:
     self.total_number = 0
 
 class Human(Player):
-  def __init__(self, name):
-    super().__init__(name)
+  def __init__(self):
+    super().__init__('自分')
 
 class Computer(Player):
-  def __init__(self, name):
-    super().__init__(name)
+  def __init__(self):
+    super().__init__('コンピューター')
 
 def create_cards():
-  global cards
+  cards.clear()
+
   for i, mark in enumerate(marks):
     for j, number in enumerate(numbers):
       cards.append( Card(mark, display_names[j], number, card_images[i*len(numbers)+j]) )
@@ -72,18 +71,20 @@ def show_cards(cards):
   plt.show()
 
 def deal_card(player):
-  card_number = random.randint( 0, len(marks) * len(numbers) - 1 )
-  while cards[card_number].is_dealt:
-    card_number = random.randint( 0, len(marks) * len(numbers) - 1 )
-  player.cards.append( cards[card_number] )
-  player.total_number += cards[card_number].number
-  cards[card_number].is_dealt = True
+  tmp_cards = list(filter(lambda n: n.is_dealt == False, cards))
+  assert (len(tmp_cards) != 0), "残りカードなし"
+
+  tmp_card = random.choice( tmp_cards )
+  tmp_card.is_dealt = True
+
+  player.cards.append( tmp_card )
+  player.total_number += tmp_card.number
 
 def win():
   print('勝ち')
 
 def choice():
-  message = 'スタンド[1] or ヒット[2]'
+  message = 'ヒット[1] or スタンド[2]'
   choice_key = input(message)
   while not enable_choice(choice_key):
     choice_key = input(message)
@@ -101,14 +102,14 @@ def play():
   print('デバッグログ：play()')
   load_image()
   create_cards()
-  players.append( Human('自分') )
-  players.append( Computer('コンピューター') )
+  players.append( Human() )
+  players.append( Computer() )
   deal_card( players[0] )
   deal_card( players[1] )
   deal_card( players[0] )
   show_cards( players[0].cards )
   choice()
-  
+
   if(players[0].total_number == 21):
     win()
 
