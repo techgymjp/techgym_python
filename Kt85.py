@@ -108,6 +108,8 @@ def enable_choice(string):
       return True
     else:
       return False
+  else:
+    return False
 
 def play_once():
   deal_card( players[0] )

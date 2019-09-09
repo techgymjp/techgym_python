@@ -107,6 +107,8 @@ def enable_choice(string):
       return True
     else:
       return False
+  else:
+    return False
 
 def play_once():
   deal_card( players[0] )
@@ -121,7 +123,6 @@ def play_once():
     choice_key = choice()
     if choice_key == 1:
       hit()
-      stand()
     elif choice_key == 2:
       stand()
 
@@ -140,18 +141,24 @@ def is_burst(player):
 def hit():
   deal_card( players[0] )
   show_cards( players[0].cards )
-
-def stand():
   if is_blackjack():
     win()
   elif is_burst(players[0]):
     lose()
   else:
-    if players[1].total_number < 17:
-      deal_card( players[1] )
+    choice_key = choice()
+    if choice_key == 1:
+      hit()
+    elif choice_key == 2:
+      stand()
 
-    if is_burst(players[1]):
-      win()
+def stand():
+  deal_card( players[1] )
+  if is_burst(players[1]):
+    win()
+  else:
+    if players[1].total_number < 17:
+      stand()
     else:
       result = judge()
       show_result(result)

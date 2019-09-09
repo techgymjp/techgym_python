@@ -97,6 +97,8 @@ def enable_choice(string):
       return True
     else:
       return False
+  else:
+    return False
 
 def play():
   print('デバッグログ：play()')
