@@ -25,8 +25,8 @@ class Player:
 
   def double(self):
     for key, bet in self.bets.items():
-      self.bets[key] *= 2
-      self.coin -= int(bet)
+      self.bets[key] += bet
+      self.coin -= int(bet) * 2
 
 class Human(Player):
   def __init__(self, name, coin):
