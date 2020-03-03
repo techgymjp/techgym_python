@@ -120,7 +120,7 @@ def win_player(player, hit_cell_number):
   print(player.name + 'は当たり ' + str(win_coin) + 'コインを獲得しました。')
 
 def create_table():
-  global table
+  table.clear()
   table.append(Cell('R', 8, 'red'))
   table.append(Cell('B', 8, 'black'))
   table.append(Cell('1', 2, 'red'))
