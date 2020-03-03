@@ -85,8 +85,7 @@ class ColorBase:
   END = '\033[0m'
 
 def set_cells():
-  global cells
-  cells = []
+  cells.clear()
   for cell in table:
     cells.append(cell.__dict__['name'])
 
