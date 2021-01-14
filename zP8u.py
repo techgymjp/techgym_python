@@ -1,3 +1,3 @@
 import requests
 
-url = 'https://news.yahoo.co.jp/'
+url = 'https://techgym.jp/?cat=2'

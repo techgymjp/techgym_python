@@ -1,6 +1,6 @@
 import requests
 
-url = 'https://news.yahoo.co.jp/'
+url = 'https://techgym.jp/?cat=2'
 
 response = requests.get(url)
 print(response.text)
