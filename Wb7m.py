@@ -6,7 +6,7 @@ url = 'https://techgym.jp/?cat=2'
 response = requests.get(url)
 soup = BeautifulSoup(response.text, 'lxml')
 
-articles = soup.find_all('article', class_='media')
+articles = soup.find_all('div', class_='vk_post')
 
 for article in articles:
-  print(article.find('h1').getText())
+  print(article.find('h5').getText())
