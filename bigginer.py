@@ -3,9 +3,9 @@ import random
 print('じゃんけんスタート')
 print('自分の手を入力してください')
 
-my_hand = 2
+my_hand = input()
+print(my_hand)
 your_hand = random.randint(0, 2)
-print(your_hand)
 
 if my_hand == 0:
     if your_hand == 0:
