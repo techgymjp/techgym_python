@@ -54,7 +54,6 @@ def view_result(result):
   show_life()
 
 def update_life(result):
-  global lifes
   if result == 'win':
     lifes['you'] -= 1
   elif result == 'lose':
