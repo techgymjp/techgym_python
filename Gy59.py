@@ -42,7 +42,6 @@ def play():
   my_hand = get_my_hand()
   you_hand = get_you_hand()
   hand_diff = my_hand - you_hand
-
   view_hand(my_hand, you_hand)
   result = get_result(hand_diff)
   view_result(result)
