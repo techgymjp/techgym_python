@@ -72,11 +72,10 @@ class Computer(Player):
     super().__init__(name)
 
 def initialize():
-  global cards, players
   for card in cards:
     card.is_dealt = False
   for player in players:
-    player.cards = []
+    player.cards.clear()
     player.total_number = 0
 
 def create_cards():
