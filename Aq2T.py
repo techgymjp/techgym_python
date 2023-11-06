@@ -35,10 +35,10 @@ def play():
 def show_test():
   plt.subplot(1,6,1)
   plt.axis("off")
-  plt.imshow(card_images[5])
+  plt.imshow(card_images[20])
   plt.subplot(1,6,2)
   plt.axis("off")
-  plt.imshow(card_images[6])
+  plt.imshow(card_images[33])
   plt.show()
 
 play()
