@@ -12,20 +12,6 @@ def load_image():
   hsplit_number = 13
   
   if not os.path.isfile(image_name):
-    response = requests.get('import requests
-import cv2 as cv
-import os
-import matplotlib.pyplot as plt
-import numpy as np
-
-card_images = []
-
-def load_image():
-  image_name = 'cards.jpg'
-  vsplit_number = 4
-  hsplit_number = 13
-  
-  if not os.path.isfile(image_name):
     response = requests.get('https://raw.githubusercontent.com/techgymjp/techgym_python/master/cards.jpg', allow_redirects=False)
     with open(image_name, 'wb') as image:
       image.write(response.content)
