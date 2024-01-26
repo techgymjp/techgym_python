@@ -27,11 +27,6 @@ def load_image():
     for v_image in np.hsplit(h_image, hsplit_number):
       card_images.append(v_image)
 
-def play():
-  print('デバッグログ：play()')
-  load_image()
-  show_test()
-
 class Card:
   def __init__(self, mark, display_name, number, image):
     self.mark = mark
