@@ -88,8 +88,8 @@ def change_power(player, status):
     playing_teams[player].attack *= 2
     playing_teams[player].defense *= 2
   elif status == 'normal':
-    playing_teams[player].attack /= 2
-    playing_teams[player].defense /= 2
+    playing_teams[player].attack //= 2
+    playing_teams[player].defense //= 2
  
 def play():
   create_teams()
