@@ -114,7 +114,7 @@ def check_hit():
       print(player.name + 'は当たり')
 
 def create_table():
-  global table
+  table.clear()
   table.append(Cell('R', 8, 'red'))
   table.append(Cell('B', 8, 'black'))
   table.append(Cell('1', 2, 'red'))
