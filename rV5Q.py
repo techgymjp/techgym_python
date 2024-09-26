@@ -88,8 +88,7 @@ class ColorBase:
   END = '\033[0m'
 
 def set_cells():
-  global cells
-  cells = []
+  cells.clear()
   for cell in table:
     cells.append(cell.__dict__['name'])
 
@@ -120,7 +119,7 @@ def win_player(player, hit_cell_number):
   print(player.name + 'は当たり ' + str(win_coin) + 'コインを獲得しました。')
 
 def create_table():
-  global table
+  table.clear()
   table.append(Cell('R', 8, 'red'))
   table.append(Cell('B', 8, 'black'))
   table.append(Cell('1', 2, 'red'))

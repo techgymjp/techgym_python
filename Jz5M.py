@@ -92,8 +92,7 @@ class ColorBase:
   END = '\033[0m'
 
 def set_cells():
-  global cells
-  cells = []
+  cells.clear()
   for cell in table:
     cells.append(cell.__dict__['name'])
 
@@ -138,7 +137,7 @@ def show_coin():
   print(message)
 
 def create_table():
-  global table
+  table.clear()
   table.append(Cell('R', 2, 'red'))
   table.append(Cell('B', 2, 'black'))
   table.append(Cell('1', 8, 'red'))
