@@ -2,7 +2,7 @@ import random
 import math
 
 teams = []
-playing_teams = {'myself': False, 'enemy': False}
+playing_teams = {'myself': None, 'enemy': None}
 
 class Team:
   def __init__(self, name, attack, defense):
