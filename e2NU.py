@@ -62,7 +62,8 @@ class Human(Player):
 
   def enable_bet_cell(self, string):
     if string.isdigit():
-      if unicodedata.east_asian_width(string) == 'Na':
+      #if unicodedata.east_asian_width(string) == 'Na':#全角数字2つ以上だとエラーになる。
+      if all(unicodedata.east_asian_width(c) == 'Na' for c in string):
         number = int(string)
         if number >= 1 and number <= 8:
           return True
