@@ -86,7 +86,6 @@ class ColorBase:
 
 def set_cells():
   global cells
-  cells = []
   for cell in table:
     cells.append(cell.__dict__['name'])
 
