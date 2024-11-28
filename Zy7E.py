@@ -105,7 +105,7 @@ def bet_players():
     player.bet()
 
 def create_table():
-  global table
+  table.clear()
   table.append(Cell('R', 8, 'red'))
   table.append(Cell('B', 8, 'black'))
   table.append(Cell('1', 2, 'red'))
