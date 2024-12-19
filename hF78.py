@@ -93,7 +93,6 @@ class Computer(Player):
     super().__init__(name)
 
 def initialize():
-  global cards, players
   for card in cards:
     card.is_dealt = False
   for player in players:
