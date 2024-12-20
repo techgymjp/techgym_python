@@ -193,7 +193,6 @@ def show_coin():
   print(message)
 
 def create_table():
-  global table
   table.append(Cell('R', 2, 'red'))
   table.append(Cell('B', 2, 'black'))
   table.append(Cell('1', 8, 'red'))
