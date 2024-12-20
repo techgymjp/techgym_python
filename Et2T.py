@@ -91,7 +91,6 @@ def create_players():
   players = [human, computer1, computer2, computer3]
 
 def create_table():
-  global table
   table.append(Cell('R', 8, 'red'))
   table.append(Cell('B', 8, 'black'))
   table.append(Cell('1', 2, 'red'))
