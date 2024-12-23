@@ -112,8 +112,8 @@ def enable_choice(string):
 
 def play_once():
   deal_card( players[0] )
-  deal_card( players[0] )
   deal_card( players[1] )
+  deal_card( players[0] )
   show_cards( players[0].cards )
 
   if is_blackjack():
