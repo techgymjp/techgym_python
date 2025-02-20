@@ -11,6 +11,11 @@ response = requests.get(url,headers=headers)
 soup = BeautifulSoup(response.text, 'lxml')
 
 articles = soup.find_all('div', class_='vk_post')
-
 for article in articles:
   print(article.find('h5').getText())
+
+'''
+articles = soup.find_all('h5',class_='vk_post_title')
+for article in articles:
+  print(article.find('a').getText())
+'''
