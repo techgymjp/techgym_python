@@ -187,6 +187,7 @@ def show_result(result):
 def play():
   load_image()
   create_cards()
+  players.clear()
   players.append( Human() )
   players.append( Computer() )
 

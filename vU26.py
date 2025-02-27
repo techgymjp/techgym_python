@@ -150,6 +150,7 @@ def play():
   print('デバッグログ：play()')
   load_image()
   create_cards()
+  players.clear()
   players.append( Human() )
   players.append( Computer() )
  
